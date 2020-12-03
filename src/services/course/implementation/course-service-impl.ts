@@ -2,10 +2,11 @@ import {
     CertificateUrlResponse, ContentState, ContentStateScore,
     CsCourseService,
     GetContentStateRequest,
+    getForumIdRequest,
     GetUserEnrolledCoursesRequest
 } from '../interface';
 import {Course} from '../../../models/course';
-import {Observable} from 'rxjs';
+import {Observable, of} from 'rxjs';
 import {CsCourseServiceConfig} from '../../../index';
 import {CsHttpRequestType, CsHttpService, CsRequest} from '../../../core/http-service/interface';
 import {inject, injectable, optional} from 'inversify';
@@ -89,5 +90,20 @@ export class CourseServiceImpl implements CsCourseService {
                 });
             })
         );
+    }
+
+    getForumId(courseAndBatchIds:getForumIdRequest, config?: CsCourseServiceConfig): Observable<any>{
+        // const apiRequest: CsRequest = new CsRequest.Builder()
+        //     .withType(CsHttpRequestType.GET)
+        //     .withPath((config ? config.certRegistrationApiPath : this.certRegistrationApiPath) + '/download/' + courseAndBatchIds)
+        //     .withBearerToken(true)
+        //     .withUserToken(true)
+        //     .build();
+        // return this.httpService.fetch<{ result: { forumId: string } }>(apiRequest).pipe(
+        //     map((response) => {
+        //         return response.body.result;
+        //     })
+        // );
+        return of({forumId: '123456'})
     }
 }

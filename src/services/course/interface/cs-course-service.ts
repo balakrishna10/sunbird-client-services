@@ -57,6 +57,10 @@ export interface ContentState {
     score?: ContentStateScore[];
     bestScore?: ContentStateScore;
 }
+export interface getForumIdRequest {
+    courseId: string;
+    batchId?: string;
+}
 
 export interface CsCourseService {
     getUserEnrolledCourses(request: GetUserEnrolledCoursesRequest, additionalParams?: { [key: string]: string }, config?: CsCourseServiceConfig): Observable<Course[]>;
@@ -64,4 +68,6 @@ export interface CsCourseService {
     getSignedCourseCertificate(certificateId: string, config?: CsCourseServiceConfig): Observable<CertificateUrlResponse>;
 
     getContentState(request: GetContentStateRequest, config?: CsCourseServiceConfig): Observable<ContentState[]>;
+
+    getForumId(courseAndBatchIds:getForumIdRequest, config?: CsCourseServiceConfig): Observable<any>
 }
