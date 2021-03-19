@@ -54,9 +54,12 @@ export interface CsRemoveForumResponse {
 }
 
 export interface CsGetContextBasedDiscussionRequest {
+    cids: any[]
 }
 
 export interface CsGetContextBasedDiscussionResponse {
+    cids: any[],
+    tag: string
 }
 
 export interface CsGetContextBasedTagDiscussionRequest {
