@@ -1,5 +1,5 @@
-import {Observable} from 'rxjs';
-import {CsDiscussionServiceConfig} from '../../../index';
+import { Observable } from 'rxjs';
+import { CsDiscussionServiceConfig } from '../../../index';
 
 // export interface CsGroupCreateRequest {
 //     name: string;
@@ -37,7 +37,7 @@ export interface CsAttachForumRequest {
     context: {
         type: string,
         identifier: string
-      },
+    },
     type: string
 }
 
@@ -65,7 +65,12 @@ export interface CsGetContextBasedDiscussionResponse {
 export interface CsGetContextBasedTagDiscussionRequest {
 }
 
+export interface CsGetContextBasedTagRequest {
+}
+
 export interface CsGetContextBasedTagDiscussionResponse {
+}
+export interface CsGetContextBasedTagResponse {
 }
 
 
@@ -73,11 +78,11 @@ export interface CsGetContextBasedTagDiscussionResponse {
 
 export interface CsDiscussionService {
     // appendPage(page: any, url: string);
-    
+
     fetchAllTags(config?: CsDiscussionServiceConfig): Observable<any>;
-    
+
     createPost(data: any, config?: CsDiscussionServiceConfig): Observable<any>;
-     
+
     fetchAllCategories(config?: CsDiscussionServiceConfig): Observable<any>;
 
     fetchSingleCategoryDetails(cid, config?: CsDiscussionServiceConfig): Observable<any>;
@@ -136,22 +141,24 @@ export interface CsDiscussionService {
 
     deletePost(pid: number, uid: number, config?: CsDiscussionServiceConfig): Observable<any>;
 
-    attachForum( data: CsAttachForumRequest): Observable<CsAttachForumResponse>;
+    attachForum(data: CsAttachForumRequest): Observable<CsAttachForumResponse>;
 
     removeForum(data: CsRemoveForumRequest, config?: CsDiscussionServiceConfig): Observable<CsRemoveForumResponse>;
 
-    createForum( data: any, config?: CsDiscussionServiceConfig): Observable<CsAttachForumResponse>;
+    createForum(data: any, config?: CsDiscussionServiceConfig): Observable<CsAttachForumResponse>;
 
-    getContextBasedDiscussion( data: CsGetContextBasedDiscussionRequest, config?: CsDiscussionServiceConfig): Observable<CsGetContextBasedDiscussionResponse>;
+    getContextBasedDiscussion(data: CsGetContextBasedDiscussionRequest, config?: CsDiscussionServiceConfig): Observable<CsGetContextBasedDiscussionResponse>;
 
-    getContextBasedTagDiscussion( data: CsGetContextBasedTagDiscussionRequest, config?: CsDiscussionServiceConfig): Observable<CsGetContextBasedTagDiscussionResponse>;
+    getContextBasedTagDiscussion(data: CsGetContextBasedTagDiscussionRequest, config?: CsDiscussionServiceConfig): Observable<CsGetContextBasedTagDiscussionResponse>;
+
+    contextBasedTags(data: CsGetContextBasedTagRequest, config?: CsDiscussionServiceConfig): Observable<CsGetContextBasedTagResponse>;
 
     recentPost(config?: CsDiscussionServiceConfig): Observable<any>;
 
     popularPost(config?: CsDiscussionServiceConfig): Observable<any>;
 
     getSingleCategoryDetails(cid: number, config?: CsDiscussionServiceConfig): Observable<any>;
-    
+
     getTagBasedDiscussion(tag: string, config?: CsDiscussionServiceConfig): Observable<any>;
-    
+
 }
